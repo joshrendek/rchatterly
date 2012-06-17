@@ -10,19 +10,14 @@ $(function() {
   faye.subscribe('/messages/new', function (data) {
       $("#chat").append(data + '<br>');
   });
-
-  $('#send').live('click', function() { 
-      $("#chat").append($('#content').val() + '<br>');
-      $("#new_message")[0].reset();
-      });
 });</script>
 
 <ul id="chat">
 </ul>
 
-<%= form_for :message, :path => generic_index_path, :remote => true, :id => 'new_message' do |f| %>
-    <%= text_field_tag :content, nil, :id => 'content'%>
-  <%= submit_tag "Send", :id => 'send' %>
+<%= form_for @message, :remote => true, :id => 'new_message' do |f| %>
+    <%= f.text_field :message, nil, :id => 'content'%>
+  <%= f.submit "Send", :id => 'send' %>
 <% end %>
 
 

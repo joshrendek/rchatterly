@@ -1,0 +1,3 @@
+<% broadcast "/messages/#{@room.id}" do %>
+$("#chat").append("<%= escape_javascript render(@message) %>");
+<% end %>

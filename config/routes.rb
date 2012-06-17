@@ -1,5 +1,7 @@
 Rchatterly::Engine.routes.draw do
-  resources :rooms
+  resources :rooms do 
+      resources :messages
+  end
 
   get "generic/index"
 

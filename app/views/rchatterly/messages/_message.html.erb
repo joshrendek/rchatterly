@@ -1,4 +1,6 @@
 <li>
-  <span class="created_at"><%= message.created_at.strftime("%H:%M") %></span>
-  <%= message.message %>
+  <span class="timestamp"><%= message.created_at.strftime("%H:%M") %></span>
+  <span class="user"><%= message.user %></span>
+  <span class="message"><%= message.message %></span>
+  <div class="clear"></div>
 </li>

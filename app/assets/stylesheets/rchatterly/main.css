@@ -1,0 +1,60 @@
+#chat { 
+    width: 95%; 
+    border: 1px solid #ababab;
+    list-style: none;
+    padding: 0px;
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#room_title { 
+    padding-left: 30px; 
+}
+
+#new_message { 
+    padding-left: 24px;
+}
+
+#new_message #content { 
+    width: 92%;
+}
+
+
+#chat li { 
+    padding: 4px; 
+    border-bottom: 1px solid #ababab;
+}
+#chat li:nth-child(odd) { 
+    background-color:#FFFFC3;
+}
+#chat li:nth-child(even) { 
+    background-color:#fff;
+}
+
+.clear { 
+    clear: both; 
+}
+
+#chat .message { 
+    float: left;
+    margin-left: auto;
+    padding-left: 30px;
+}
+
+#chat .user { 
+    float: left; 
+    margin-left: 0px;
+}
+
+#chat .timestamp { 
+    float: right;
+    margin-right: 10px;
+}
+
+.navigation a { 
+    display: block; 
+    float: left;
+    width: auto;
+    padding: 5px;
+}

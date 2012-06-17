@@ -1,8 +1,18 @@
 <html>
     <head>
+        <%= stylesheet_link_tag    "rchatterly/application", :media => "all" %>
         <%= stylesheet_link_tag "http://twitter.github.com/bootstrap/assets/css/bootstrap.css" %>
+        <%= javascript_include_tag "rchatterly/application" %>
+        <%= csrf_meta_tags %>
     </head>
     <body>
+        <div class="navigation">
+            <%= link_to "Rooms", rooms_path %>
+            <% Rchatterly::Room.all.each do |room| %>
+                <%= link_to room, room %>
+            <% end %>
+        </div>
+        <div class="clear"></div>
         <%= yield %>
     </body>
 </html>

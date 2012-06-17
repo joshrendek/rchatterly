@@ -1,3 +1,5 @@
 <% broadcast "/messages/#{@room.id}" do %>
 $("#chat").append("<%= escape_javascript render(@message) %>");
+$("#new_message")[0].reset();
+$("#chat").animate({ scrollTop: $("#chat").prop("scrollHeight") }, 3000);
 <% end %>

@@ -1,5 +1,3 @@
-module Rchatterly
-  class ApplicationController < ActionController::Base
-      layout 'rchatterly/rchatterly'
-  end
+class Rchatterly::ApplicationController < ApplicationController
+    layout 'rchatterly/rchatterly'
 end

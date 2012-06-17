@@ -1,31 +1,22 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @room.name %>
-</p>
-
+<h1 class="room_title"><%= @room.name %></h1>
+<div class="clear"></div>
 
 <%= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
-<%= link_to "Rooms", rooms_path %>
- |
-<% Rchatterly::Room.all.each do |room| %>
-    <%= link_to room, room %>
-<% end %>
 <script type="text/javascript">
-$(function() {
-  var faye = new Faye.Client('http://localhost:9292/faye');
-  faye.subscribe('/messages/<%=@room.id%>', function (data) {
-      eval(data);
-  });
-});</script>
+    $(function() {
+            var faye = new Faye.Client('http://localhost:9292/faye');
+            faye.subscribe('/messages/<%=@room.id%>', function (data) {
+                eval(data);
+                });
+            });</script>
 
-<ul id="chat">
-    <%= render @messages %>
-</ul>
-<%= form_for [@room, @message], :remote => true, :id => 'new_message' do |f| %>
-    <%= f.text_field :message, :id => 'content'%>
-  <%= f.submit "Send", :id => 'send' %>
-<% end %>
+        <ul id="chat">
+            <%= render @messages %>
+        </ul>
+        <%= form_for [@room, @message], :remote => true, :id => 'new_message' do |f| %>
+            <%= f.text_field :message, :id => 'content'%>
+            <%= f.submit "Send", :id => 'send', :class => "btn btn-primary" %>
+        <% end %>
 
 
